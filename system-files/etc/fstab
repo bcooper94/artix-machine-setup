@@ -1,0 +1,27 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=B8EB-6FDA                            /boot/efi          vfat    defaults,umask=0077 0 2
+UUID=2f9aae92-d354-4e16-aece-805663a222e8 /                  ext4    defaults   0 1
+UUID=ce1aeae2-d88d-4998-8ac6-84be91deaf25 /home              ext4    defaults   0 2
+UUID=ec91afb1-80e8-41e5-a853-a0eb9eb4df20 /mnt/games         ext4    defaults   0 2
+UUID=eabc1e53-f87b-4d59-9f00-95ac49ac0cc9 none               swap    defaults   0 0
+tmpfs                                     /tmp               tmpfs   defaults,noatime,mode=1777 0 0
+# rpc_pipefs for rpc-gssd service (kerberos server dependency)
+rpc_pipefs                                /var/lib/nfs/rpc_pipefs rpc_pipefs defaults 0 0
+
+UUID=C01E9E9F1E9E8DD2                     /mnt/win-hdd-games ntfs3   uid=1000,gid=1000,umask=022,windows_names,prealloc,nofail 0 0
+
+# Synology NAS
+# cifs mounts require the password for the mounted username at mount time
+//nas.home/Videos                           /mnt/nas/Videos    cifs    username=brandon,sec=ntlmssp,_netdev,nofail,noauto 0 0
+//nas.home/home                             /mnt/nas/home      cifs    username=brandon,sec=ntlmssp,_netdev,nofail,noauto 0 0
+
+# Attempts at mounting NAS drives with Kerberos authN
+# These mounts are handled by autofs
+# nas.home:/volume1/homes/brandon           /mnt/nas/home      nfs4    sec=krb5p,_netdev 0 0
+# nas.home:/volume1/Videos                  /mnt/nas/Videos    nfs4    sec=krb5p,_netdev 0 0
