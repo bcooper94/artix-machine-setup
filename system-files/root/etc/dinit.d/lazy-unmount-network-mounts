@@ -1,0 +1,14 @@
+type = scripted
+command = /usr/bin/true
+stop-command = /usr/local/bin/lazy-unmount-network-mounts.sh
+run-as = root
+
+# depends-on = network.target
+before = early-fs-fstab.target
+
+stop-timeout = 5
+
+logfile = /var/log/lazy-unmount-network-mounts.log
+logfile-gid = logs
+logfile-permissions = 640
+
