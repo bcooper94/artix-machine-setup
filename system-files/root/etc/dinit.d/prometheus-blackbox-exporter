@@ -1,0 +1,9 @@
+type = process
+command = /usr/bin/prometheus-blackbox-exporter --config.file=/etc/prometheus/blackbox.yml
+run-as = prometheus
+
+depends-on = network.target
+
+logfile = /var/log/prometheus-blackbox-exporter.log
+logfile-permissions = 644
+logfile-gid = logs

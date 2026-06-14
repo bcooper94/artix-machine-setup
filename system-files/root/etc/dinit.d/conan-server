@@ -1,0 +1,13 @@
+type = process
+command = /usr/bin/wine ConanSandbox/Binaries/Win64/ConanSandboxServer-Win64-Shipping.exe -MULTIHOME=192.168.0.30 -log
+working-dir = /home/steam/conan_exiles
+run-as = steam
+env-file = /etc/dinit.d/environment/conan-server.env
+restart = true
+smooth-recovery = true
+stop-timeout = 30
+
+logfile = /var/log/conan-server.log
+logfile-permissions = 640
+logfile-uid = steam
+logfile-gid = logs

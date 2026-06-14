@@ -1,0 +1,8 @@
+type = process
+command = /usr/bin/prometheus-node-exporter --collector.hwmon --collector.cpu --collector.meminfo --collector.thermal_zone --web.listen-address=:9100
+run-as = node-exporter
+restart = true
+logfile = /var/log/node-exporter/node-exporter.log
+logfile-permissions = 640
+logfile-uid = node-exporter
+logfile-gid = logs

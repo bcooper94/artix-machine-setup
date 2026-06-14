@@ -1,0 +1,9 @@
+type = process
+command = pipewire-pulse --config=/usr/share/pipewire/pipewire-pulse.conf
+load-options = export-passwd-vars
+restart = true
+
+depends-on = pipewire.user
+
+logfile = $HOME/.local/share/dinit/pipewire-pulse.log
+logfile-permissions = 640

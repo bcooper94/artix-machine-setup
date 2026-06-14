@@ -1,0 +1,9 @@
+type = process
+command = /usr/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus/data
+working-dir = /usr/share/prometheus/web/ui
+run-as = prometheus
+restart = true
+logfile = /var/log/prometheus/prometheus.log
+logfile-permissions = 640
+logfile-uid = prometheus
+logfile-gid = logs

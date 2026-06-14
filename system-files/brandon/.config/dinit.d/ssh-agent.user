@@ -1,0 +1,8 @@
+type = process
+# Run in foreground with 2 hour default key lifetime
+command = ssh-agent -D -t 2h
+restart = true
+smooth-recovery = true
+
+logfile = $HOME/.local/share/dinit/ssh-agent.log
+logfile-permissions = 640

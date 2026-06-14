@@ -1,0 +1,13 @@
+type = process
+command = wireplumber
+load-options = export-passwd-vars
+restart = true
+smooth-recovery = true
+
+env-file = user/environment/wireplumber.env
+
+depends-on = pipewire.user
+depends-on = pipewire-pulse.user
+
+logfile = $HOME/.local/share/dinit/wireplumber.log
+logfile-permissions = 640

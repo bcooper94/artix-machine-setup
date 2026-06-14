@@ -1,0 +1,8 @@
+type = process
+command = /usr/bin/containerd
+smooth-recovery = true
+
+env-file = /etc/containerd/containerd.env
+
+logfile = /var/log/containerd/containerd.log
+logfile-permissions = 644

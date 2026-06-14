@@ -1,0 +1,8 @@
+type = process
+command = /usr/bin/grafana server --config /etc/grafana.ini
+working-dir = /usr/share/grafana/
+run-as = grafana
+
+logfile = /var/log/grafana.log
+logfile-permissions = 644
+logfile-gid = logs

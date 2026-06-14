@@ -1,0 +1,9 @@
+type = process
+command = user/scripts/dbus-session --print-address 3
+load-options = export-passwd-vars
+ready-notification = pipefd:3
+restart = true
+smooth-recovery = true
+
+logfile = $HOME/.local/share/dinit/dbus.log
+logfile-permissions = 640

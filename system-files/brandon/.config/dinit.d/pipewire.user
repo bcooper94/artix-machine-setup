@@ -1,0 +1,13 @@
+type = process
+command = pipewire
+load-options = export-passwd-vars
+restart = true
+smooth-recovery = true
+
+env-file = user/environment/pipewire.env
+
+depends-on = dbus.user
+waits-for = dbus.user
+
+logfile = $HOME/.local/share/dinit/pipewire.log
+logfile-permissions = 640

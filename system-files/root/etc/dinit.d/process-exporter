@@ -1,0 +1,8 @@
+type = process
+command = /usr/bin/process-exporter --config.path=/etc/process-exporter/all.yaml --web.listen-address=:9256
+run-as = process-exporter
+restart = true
+logfile = /var/log/process-exporter/process-exporter.log
+logfile-permissions = 640
+logfile-uid = process-exporter
+logfile-gid = logs
