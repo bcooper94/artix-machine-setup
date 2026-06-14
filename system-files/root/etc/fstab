@@ -18,7 +18,7 @@ UUID=C01E9E9F1E9E8DD2                     /mnt/win-hdd-games ntfs3   uid=1000,gi
 
 # Synology NAS
 # cifs mounts require the password for the mounted username at mount time
-//nas.home/Videos                           /mnt/nas/Videos    cifs    username=brandon-unprivileged,sec=ntlmssp,seal,vers=3,_netdev,nofail,noauto 0 0
+//nas.home/Videos                           /mnt/nas/Videos    cifs    username=brandon-unprivileged,sec=ntlmssp,seal,vers=3,uid=brandon,gid=nas-videos,_netdev,nofail,noauto 0 0
 //nas.home/home                             /mnt/nas/home      cifs    username=brandon,sec=ntlmssp,seal,vers=3,_netdev,nofail,noauto 0 0
 
 # Attempts at mounting NAS drives with Kerberos authN
