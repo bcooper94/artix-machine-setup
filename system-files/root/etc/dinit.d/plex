@@ -1,0 +1,16 @@
+type = process
+command = /usr/local/sbin/plex-start
+stop-command = /usr/bin/docker stop plex
+run-as = plex
+
+depends-on = docker
+depends-on = early-fs-fstab.target
+
+smooth-recovery = true
+restart = true
+
+stop-timeout = 30
+
+logfile = /var/log/plex.log
+logfile-gid = logs
+logfile-permissions = 644

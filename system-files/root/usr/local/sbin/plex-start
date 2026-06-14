@@ -1,0 +1,36 @@
+#!/bin/sh
+
+PUID=$(id -u)
+PGID=$(id -g)
+
+exec docker run \
+  --name plex \
+  --rm \
+  --device /dev/dri/renderD128:/dev/dri/renderD128 \
+  --cap-drop ALL \
+  --cap-add CHOWN \
+  --cap-add SETUID \
+  --cap-add SETGID \
+  --cap-add DAC_OVERRIDE \
+  --security-opt no-new-privileges:true \
+  --tmpfs /tmp \
+  -e PUID=$PUID \
+  -e PGID=$PGID \
+  -e TZ=America/Los_Angeles \
+  -e VERSION=docker \
+  -e ADVERTISE_IP=http://192.168.0.30:32400/ \
+  -v /home/brandon/.plex-server/config:/config \
+  -v /home/brandon/.plex-server/transcode:/transcode \
+  -v /mnt/nas/Videos/MP4/movies:/data/movies:ro \
+  -v /mnt/nas/Videos/MP4/tv:/data/tv:ro \
+  -v /mnt/nas/Videos/music:/data/music:ro \
+  -p 32400:32400/tcp \
+  -p 8324:8324/tcp \
+  -p 5353:5353/udp \
+  -p 1900:1900/udp \
+  -p 32410:32410/udp \
+  -p 32412:32412/udp \
+  -p 32413:32413/udp \
+  -p 32414:32414/udp \
+  -p 32469:32469/tcp \
+  lscr.io/linuxserver/plex:latest
