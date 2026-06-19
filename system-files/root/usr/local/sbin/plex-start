@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if ! findmnt /mnt/nas/Videos 2>&1 > /dev/null; then
+  echo "/mnt/nas/Videos is not mounted"
+  exit 1
+fi
+
+
 PUID=$(id -u)
 PGID=$(id -g)
 
@@ -26,7 +32,6 @@ exec docker run \
   -v /mnt/nas/Videos/music:/data/music:ro \
   -p 32400:32400/tcp \
   -p 8324:8324/tcp \
-  -p 5353:5353/udp \
   -p 1900:1900/udp \
   -p 32410:32410/udp \
   -p 32412:32412/udp \
